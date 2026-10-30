@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+        <title>Boş vaxt sorğusu</title>
+    </head>
+    <body>
+        <header>
+            <h1>Boş vaxt sorğusu</h1>
+        </header>
+        <main>
+            <form method="post" action="{{ url_for("submit") }}">
+                <div class="input-group">
+                    <label for="age">Yaşınız neçədir?</label>
+                    <input id="age"
+                           name="age"
+                           type="number"
+                           min="6"
+                           max="18"
+                           placeholder="6-18 yaş arası"
+                           required />
+                </div>
+                <div class="input-group">
+                    <label for="grade">
+                        Neçənci sinifdə
+                        oxuyursunuz?
+                    </label>
+                    <input id="grade"
+                           name="grade"
+                           type="number"
+                           min="1"
+                           max="11"
+                           placeholder="1-11-ci sinif arası"
+                           required />
+                </div>
+                <div class="input-group">
+                    <label for="free_day">
+                        Həftənin hansı günü daha çox
+                        boş vaxtınız olur?
+                    </label>
+                    <select name="free_day" id="free_day" required>
+                        {% for day in ('Bazar ertəsi', 'Çərşənbə axşamı', 'Çərşənbə', 'Cümə axşamı', 'Cümə', 'Şənbə', 'Bazar') %}
+                            <option value="{{ day }}">{{ day }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="activity">Ən sevdiyiniz hobbiniz?</label>
+                    <select name="activity_id" id="activity" required>
+                        {% for id, activity in activities %}
+                            <option value="{{ id }}">{{ activity }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="companion">
+                        Bu hobbinizi kiminlə daha çox
+                        sevirsiniz?
+                    </label>
+                    <select name="companion_id" id="companion" required>
+                        {% for id, companion in companions %}
+                            <option value="{{ id }}">{{ companion }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="hours_per_day">
+                        Gündə bu hobbiyə neçə saat
+                        ayırırsınız?
+                    </label>
+                    <input id="hours_per_day"
+                           name="hours_per_day"
+                           type="number"
+                           min="0"
+                           max="12"
+                           placeholder="0-12 saat arası"
+                           required />
+                </div>
+                <div class="input-group">
+                    <label for="satisfaction">
+                        Hobbinizdən nə qədər
+                        məmnunsunuz?
+                    </label>
+                    <input id="satisfaction"
+                           name="satisfaction"
+                           type="number"
+                           min="1"
+                           max="5"
+                           placeholder="1-5 arası"
+                           required />
+                </div>
+                <input type="submit" value="Göndər" />
+            </form>
+        </main>
+    </body>
+</html>

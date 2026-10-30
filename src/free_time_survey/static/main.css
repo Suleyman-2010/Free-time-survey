@@ -1,0 +1,106 @@
+:root {
+        --nord0: #2e3440; /*background for dark,                                          text for light*/
+        --nord1: #2b4252; /*form components for dark,                                     subtle UI text elements for light*/
+        --nord2: #434c5e; /*highlighting color for dark,                                  brighter variant of nord1 for both*/
+        --nord3: #4c566a; /*guide markers and comments/non-printable characters for dark, subtle UI text elements for light*/
+        --nord4: #d8dee9; /*text editor caret color for dark,                             form components for light*/
+        --nord5: #e5e9f0; /*subtle UI text elements for dark,                             highlighting color for light*/
+        --nord6: #eceff4; /*text color for dark,                                          background color for light*/
+        --nord7: #8fbcbb; /*secondary UI elements*/
+        --nord8: #88c0d0; /*primary UI elements*/
+        --nord9: #81a1c1; /*also secondary UI elements*/
+        --nord10: #5e81ac; /*tertiary UI elements*/
+        --nord11: #bf616a; /*errors*/
+        --nord12: #d08770; /*fatal errors*/
+        --nord13: #ebcb8b; /*warnings*/
+        --nord14: #a3be8c; /*successes*/
+        --nord15: #b48ead; /*uncommon functionality*/
+
+        --bg-color: var(--nord6);
+        --text-color: var(--nord0);
+        --form-component: var(--nord4);
+        --highlight-color: var(--nord5);
+}
+
+@media (prefers-color-scheme: dark) {
+        :root {
+                --bg-color: var(--nord0);
+                --text-color: var(--nord6);
+                --form-component: var(--nord1);
+                --highlight-color: var(--nord2);
+        }
+}
+
+html {
+        height: 100%;
+        body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+
+                header {
+                        h1 {
+                                text-align: center;
+                                font-size: 3rem;
+                        }
+                }
+                main {
+                        display: flex;
+                        justify-content: center;
+                        form {
+                                box-sizing: border-box;
+                                padding: 2rem;
+                                display: grid;
+                                grid-template: auto / 30rem 30rem;
+                                grid-gap: 1rem 3rem;
+
+                                @media (max-width: 1050px) {
+                                        grid-template: auto / auto;
+                                }
+                                .input-group {
+                                        box-sizing: border-box;
+                                        padding: 1rem;
+                                        display: flex;
+                                        flex-direction: column;
+                                        flex-basis: content;
+                                        border: 0.2rem solid
+                                                var(--highlight-color);
+                                        border-radius: 1rem;
+                                        label {
+                                                margin-bottom: 0.5rem;
+                                                color: var(--text-color);
+                                        }
+                                        input,
+                                        select {
+                                                height: fit-content;
+                                                min-height: 1.5rem;
+                                                width: min-content;
+                                                min-width: 8rem;
+                                                border: 0.2rem solid
+                                                        var(--highlight-color);
+                                                border-radius: 0.3rem;
+                                                color: var(--text-color);
+                                                background-color: var(
+                                                        --bg-color
+                                                );
+                                        }
+                                }
+                                input[type="submit"] {
+                                        color: var(--text-color);
+                                        font-size: 2rem;
+                                        background-color: var(--bg-color);
+                                        border: 0.2rem solid
+                                                var(--highlight-color);
+                                        border-radius: 1rem;
+                                        width: 30rem;
+                                }
+                        }
+                }
+        }
+}
