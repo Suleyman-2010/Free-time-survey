@@ -44,8 +44,13 @@ html {
                 background-color: var(--bg-color);
                 color: var(--text-color);
 
+                @media (max-width: 1050px) {
+                        min-height: 997px;
+                }
+
                 header {
                         h1 {
+                                margin-bottom: 0;
                                 text-align: center;
                                 font-size: 3rem;
                         }

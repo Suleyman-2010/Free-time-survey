@@ -5,11 +5,7 @@ description = "Məktəblilərin boş vaxtlarını necə keçirdiyini öyrənən 
 readme = "README.md"
 authors = [{ name = "Suleyman Kamilli", email = "suleymankamilli77@gmail.com" }]
 requires-python = ">=3.14"
-dependencies = [
-    "flask>=3.1.3",
-    "psycopg2>=2.9.13",
-    "python-dotenv>=1.2.4",
-]
+dependencies = ["flask>=3.1.3", "psycopg2>=2.9.13", "python-dotenv>=1.2.4"]
 
 [tool.mypy]
 python_executable = ".venv/bin/python"
