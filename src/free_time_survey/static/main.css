@@ -86,7 +86,7 @@ html {
                                                 height: fit-content;
                                                 min-height: 1.5rem;
                                                 width: min-content;
-                                                min-width: 8rem;
+                                                min-width: 7rem;
                                                 border: 0.2rem solid
                                                         var(--highlight-color);
                                                 border-radius: 0.3rem;
@@ -94,6 +94,17 @@ html {
                                                 background-color: var(
                                                         --bg-color
                                                 );
+                                        }
+                                        /* Chrome, Safari, Edge, Opera */
+                                        input[type="number"]::-webkit-outer-spin-button,
+                                        input[type="number"]::-webkit-inner-spin-button {
+                                                -webkit-appearance: none;
+                                                margin: 0;
+                                        }
+                                        /* Firefox */
+                                        input[type="number"] {
+                                                appearance: textfield;
+                                                -moz-appearance: textfield;
                                         }
                                 }
                                 input[type="submit"] {

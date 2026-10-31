@@ -11,3 +11,4 @@ wheels/
 
 /.python-version
 /src/free_time_survey/.env
+/src/.mypy_cache/3.14

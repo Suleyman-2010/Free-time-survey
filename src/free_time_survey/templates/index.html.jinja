@@ -4,6 +4,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+        <link rel="icon"
+              type="image/svg+xml"
+              href="{{ url_for('static', filename='favicon.svg') }}">
+        <link rel="icon"
+              href="{{ url_for('static', filename='favicon.ico') }}"
+              media="(prefers-color-scheme: light)">
+        <link rel="icon"
+              href="{{ url_for('static', filename='favicon_dark.ico') }}"
+              media="(prefers-color-scheme: dark)">
         <title>Boş vaxt sorğusu</title>
     </head>
     <body>
@@ -17,9 +26,9 @@
                     <input id="age"
                            name="age"
                            type="number"
-                           min="6"
-                           max="18"
-                           placeholder="6-18 yaş arası"
+                           min="{{ age_cstrs["min"] }}"
+                           max="{{ age_cstrs["max"] }}"
+                           placeholder="{{ age_cstrs["min"] }}-{{ age_cstrs["max"] }} yaş arası"
                            required />
                 </div>
                 <div class="input-group">
@@ -30,9 +39,9 @@
                     <input id="grade"
                            name="grade"
                            type="number"
-                           min="1"
-                           max="11"
-                           placeholder="1-11-ci sinif arası"
+                           min="{{ grade_cstrs["min"] }}"
+                           max="{{ grade_cstrs["max"] }}"
+                           placeholder="{{ grade_cstrs["min"] }}-{{ grade_cstrs["max"] }}-ci sinif arası"
                            required />
                 </div>
                 <div class="input-group">
@@ -73,9 +82,9 @@
                     <input id="hours_per_day"
                            name="hours_per_day"
                            type="number"
-                           min="0"
-                           max="12"
-                           placeholder="0-12 saat arası"
+                           min="{{ hpd_cstrs["min"] }}"
+                           max="{{ hpd_cstrs["max"] }}"
+                           placeholder="{{ hpd_cstrs["min"] }}-{{ hpd_cstrs["max"] }} saat arası"
                            required />
                 </div>
                 <div class="input-group">
@@ -86,9 +95,9 @@
                     <input id="satisfaction"
                            name="satisfaction"
                            type="number"
-                           min="1"
-                           max="5"
-                           placeholder="1-5 arası"
+                           min="{{ sat_cstrs["min"] }}"
+                           max="{{ sat_cstrs["max"] }}"
+                           placeholder="{{ sat_cstrs["min"] }}-{{ sat_cstrs["max"] }} arası"
                            required />
                 </div>
                 <input type="submit" value="Göndər" />
